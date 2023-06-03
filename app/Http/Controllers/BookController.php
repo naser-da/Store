@@ -13,7 +13,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::paginate(10);
         return view('books.index', ['books' => $books]);
     }
 
@@ -37,8 +37,7 @@ class BookController extends Controller
         $book->description = $request->description;
         $book->price = $request->price * 100; //convert from dollars to cents
 
-        $path = $request->file('file')->store();
-        
+        $path = $request->file('file')->store('images');
         $book->image = $path;
 
         $book->save();
