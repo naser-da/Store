@@ -15,6 +15,7 @@
                         <th>Title</th>
                         <th>Publish Date</th>
                         <th>Price</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -24,6 +25,7 @@
                         <th>Title</th>
                         <th>Publish Date</th>
                         <th>Price</th>
+                        <th>Actions</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -36,6 +38,15 @@
                             <td>{{$book->title}}</td>
                             <td>{{$book->publish_date}}</td>
                             <td>{{$book->price / 100}}$</td>
+                            <td>
+                                <form action="{{route('books.destroy', ['id' => $book->id])}}" method="post">
+                                    @csrf
+
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

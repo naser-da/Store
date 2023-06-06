@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('description')->nullable();
             $table->integer('publish_date');
+            // $table->boolean('is_available')->default(1);
             $table->bigInteger('price');
             $table->timestamps();
         });

@@ -18,6 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
@@ -304,7 +305,11 @@
 
                 
                 <!-- /.container-fluid -->
-
+                @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{session('success')}}
+                  </div>
+                @endif
                 @yield('content')
             </div>
             <!-- End of Main Content -->

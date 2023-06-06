@@ -33,7 +33,11 @@
                                 {{-- <img src="{{asset('storage/' . $book->image)}}" alt="{{$book->title . ' cover image'}}" width=40> --}}
                             </td>
                             <td>{{$user->id}}</td>
-                            <td>{{$user->name}}</td>
+                            <td>
+                                <a href="{{route('users.update', ['id' => $user->id])}}">
+                                    {{$user->name}}
+                                </a>
+                            </td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->created_at}}</td>
                         </tr>
